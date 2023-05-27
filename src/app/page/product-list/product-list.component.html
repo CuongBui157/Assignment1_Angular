@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Product List</h1>
+    <a routerLink="add">Add a new</a>
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let product of products; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+                <button
+                    class="btn btn-danger bg-danger"
+                    (click)="removeProduct(product.id)"
+                >
+                    Xóa
+                </button>
+                <button
+                    class="btn btn-warning bg-warning"
+                    routerLink="{{ product.id }}/edit"
+                >
+                    Edit
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
